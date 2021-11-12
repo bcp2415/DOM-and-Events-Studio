@@ -4,5 +4,12 @@
 window.addEventListener("load", init);
 
 function init() {
-    
+   declareConstants();
+
+}
+
+function declareConstants() {
+    const takeOff = document.getElementById("takeoff");
+    const landing = document.getElementById("landing");
+    const missionAbort = document.getElementById("missionAbort");
 }
