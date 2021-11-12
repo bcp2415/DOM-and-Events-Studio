@@ -5,15 +5,6 @@ window.addEventListener("load", init);
 let height = 0;
 
 function init() {
-    declareConstants();
-    takeoff.addEventListener("click", respondToTakeoff);
-    landing.addEventListener("click", land);
-    missionAbort.addEventListener("click", abortMission);
-    //const upButton = document.getElementById("upButton");
-    //upButton.addEventListener("click", upButton);
-}
-
-function declareConstants() {
     const takeOff = document.getElementById("takeoff");
     const landing = document.getElementById("landing");
     const missionAbort = document.getElementById("missionAbort");
@@ -24,6 +15,11 @@ function declareConstants() {
     const downButton = document.getElementById("downButton");
     const leftButton = document.getElementById("leftButton");
     const rightButton = document.getElementById("rightButton");
+    takeoff.addEventListener("click", respondToTakeoff);
+    landing.addEventListener("click", land);
+    missionAbort.addEventListener("click", abortMission);
+    //const upButton = document.getElementById("upButton");
+    //upButton.addEventListener("click", upButton);
 }
 
 function respondToTakeoff() {
