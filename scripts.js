@@ -9,6 +9,8 @@ function init() {
     takeoff.addEventListener("click", respondToTakeoff);
     landing.addEventListener("click", land);
     missionAbort.addEventListener("click", abortMission);
+    //const upButton = document.getElementById("upButton");
+    //upButton.addEventListener("click", upButton);
 }
 
 function declareConstants() {
@@ -18,6 +20,10 @@ function declareConstants() {
     const flightStatus = document.getElementById("flightStatus");
     const shuttleBackground = document.getElementById("shuttleBackground");
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
+    
+    const downButton = document.getElementById("downButton");
+    const leftButton = document.getElementById("leftButton");
+    const rightButton = document.getElementById("rightButton");
 }
 
 function respondToTakeoff() {
@@ -47,3 +53,11 @@ function abortMission() {
         spaceShuttleHeight.innerText = height;
     }
 }
+
+// When the "Up", "Down", "Right", and "Left" buttons are clicked, the following should happen:
+
+//     The rocket image should move 10 px in the direction of the button that was clicked.
+//     If the "Up" or "Down" buttons were clicked, then the shuttle height should increase or decrease by 10,000 miles.
+// function upButton() {
+//     console.log("upButton pushed");
+// }
