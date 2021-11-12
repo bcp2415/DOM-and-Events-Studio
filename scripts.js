@@ -21,6 +21,7 @@ function init() {
     landing.addEventListener("click", land);
     missionAbort.addEventListener("click", abortMission);
     upButton.addEventListener("click", respondToUpButton);
+    downButton.addEventListener("click", respondToDownButton);
     const rocket = document.getElementById("rocket");
 }
 
@@ -57,9 +58,15 @@ function abortMission() {
 //     The rocket image should move 10 px in the direction of the button that was clicked.
 //     If the "Up" or "Down" buttons were clicked, then the shuttle height should increase or decrease by 10,000 miles.
 function respondToUpButton() {
-    console.log("up button called");
     bottomPosition += 10;
     rocket.style.bottom = `${bottomPosition}px`;
     height += 10000;
+    spaceShuttleHeight.innerText = height;
+}
+
+function respondToDownButton() {
+    bottomPosition -= 10;
+    rocket.style.bottom = `${bottomPosition}px`;
+    height -= 10000;
     spaceShuttleHeight.innerText = height;
 }
