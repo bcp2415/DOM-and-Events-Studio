@@ -4,7 +4,7 @@
 window.addEventListener("load", init);
 let height = 0;
 let bottomPosition = 0;
-let leftPosition = 0;
+let leftPosition = 230;
 
 function init() {
     const takeOff = document.getElementById("takeoff");
@@ -20,9 +20,11 @@ function init() {
     takeoff.addEventListener("click", respondToTakeoff);
     landing.addEventListener("click", land);
     missionAbort.addEventListener("click", abortMission);
+    const rocket = document.getElementById("rocket");
     upButton.addEventListener("click", respondToUpButton);
     downButton.addEventListener("click", respondToDownButton);
-    const rocket = document.getElementById("rocket");
+    leftButton.addEventListener("click", respondToLeftButton);
+    rightButton.addEventListener("click", respondToRightButton);
 }
 
 function respondToTakeoff() {
@@ -69,4 +71,14 @@ function respondToDownButton() {
     rocket.style.bottom = `${bottomPosition}px`;
     height -= 10000;
     spaceShuttleHeight.innerText = height;
+}
+
+function respondToLeftButton() {
+    leftPosition -= 10;
+    rocket.style.left = `${leftPosition}px`;
+}
+
+function respondToRightButton() {
+    leftPosition += 10;
+    rocket.style.left = `${leftPosition}px`;
 }
