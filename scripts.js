@@ -8,6 +8,7 @@ function init() {
     declareConstants();
     takeoff.addEventListener("click", respondToTakeoff);
     landing.addEventListener("click", land);
+    missionAbort.addEventListener("click", abortMission);
 }
 
 function declareConstants() {
@@ -30,15 +31,19 @@ function respondToTakeoff() {
 }
 
 function land() {
-    // When the "Land" button is clicked, the following should happen:
-
-    // A window alert should let the user know "The shuttle is landing. Landing gear engaged."
-    // The flight status should change to "The shuttle has landed."
-    // The background color of the shuttle flight screen should change from blue to green.
-    // The shuttle height should go down to 0.
     window.alert("The shuttle is landing. Landing gear engaged.");
     flightStatus.innerText = "The shuttle has landed.";
     shuttleBackground.style.backgroundColor = "green";
     height = 0;
     spaceShuttleHeight.innerText = height;
+}
+
+function abortMission() {
+    const response = window.confirm("Confirm that you want to abort the mission.");
+    if (response) {
+        flightStatus.innerText = "Mission aborted.";
+        shuttleBackground.style.backgroundColor = "green";
+        height = 0;
+        spaceShuttleHeight.innerText = height;
+    }
 }
