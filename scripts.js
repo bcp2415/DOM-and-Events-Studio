@@ -3,7 +3,7 @@
 
 window.addEventListener("load", init);
 let height = 0;
-let bottomPosition = 0;
+let bottomPosition = -10;
 let leftPosition = 230;
 
 function init() {
@@ -50,17 +50,17 @@ function abortMission() {
     if (response) {
         flightStatus.innerText = "Mission aborted.";
         shuttleBackground.style.backgroundColor = "green";
-        height = 0;
+        height = -10;
         spaceShuttleHeight.innerText = height;
+        //rocket.style.bottom = 0px;
     }
 }
 
-// When the "Up", "Down", "Right", and "Left" buttons are clicked, the following should happen:
-
-//     The rocket image should move 10 px in the direction of the button that was clicked.
-//     If the "Up" or "Down" buttons were clicked, then the shuttle height should increase or decrease by 10,000 miles.
 function respondToUpButton() {
     bottomPosition += 10;
+    if (bottomPosition > 250) {
+        bottomPosition = 250;
+    };
     rocket.style.bottom = `${bottomPosition}px`;
     height += 10000;
     spaceShuttleHeight.innerText = height;
@@ -68,6 +68,9 @@ function respondToUpButton() {
 
 function respondToDownButton() {
     bottomPosition -= 10;
+    if (bottomPosition < -10) {
+        bottomPosition = -10;
+    };
     rocket.style.bottom = `${bottomPosition}px`;
     height -= 10000;
     spaceShuttleHeight.innerText = height;
@@ -75,10 +78,16 @@ function respondToDownButton() {
 
 function respondToLeftButton() {
     leftPosition -= 10;
+    if (leftPosition < -20) {
+        leftPosition = -20;
+    };
     rocket.style.left = `${leftPosition}px`;
 }
 
 function respondToRightButton() {
     leftPosition += 10;
+    if (leftPosition > 480) {
+        leftPosition = 480;
+    };
     rocket.style.left = `${leftPosition}px`;
 }
